@@ -4,41 +4,30 @@
  * @param {*} key 
  */
  function getkeyCode(key){   
-    switch (key.keyCode) {
+    switch (key.key) {
 
-        case 107 :  //suma
-            //alert ("suma")
-            this.guardarNumero1('suma')
+        case '+' :  //suma
+            this.guardarNumero1(key.key);
             break;
-            
-        case 109: //resta
-            //alert ("resta");
-            this.guardarNumero1('resta')
+        case '-': //resta
+            this.guardarNumero1(key.key);
             break;
-
-        case 106: //multiplicacion
-            //alert ("multiplicacion");
-            this.guardarNumero1('multiplicacion')
+        case '*': //multiplicacion
+            this.guardarNumero1(key.key);
             break;
-
-        case 111: //division 
-            //alert ("division");
-            this.guardarNumero1('division')
+        case '/': //division 
+            this.guardarNumero1(key.key);
             break;
-
-        case 186: //potencia
-            this.guardarNumero1('potencia')
+        case '^': //potencia
+            this.guardarNumero1(key.key);
             break;  
-            
-        case 53: //raiz cuadrada
-            this.guardarNumero1('raizCuadrada')
+        case '': //raiz cuadrada
+            this.guardarNumero1(key.key);
         break;     
-
-        case 13: //igual
-            //alert ("igual");
-            this.generarResultado()
+        case 'Enter': //igual
+            this.generarResultado();
             break;               
-        case 8 : //resta un numero
+        case 'Backspace': //resta un numero
             break;  
         default: //validar numero
             this.validarNumero(key);
@@ -51,8 +40,28 @@
  * @param {string} key 
  */
 function validarNumero(key) {
-    console.log(key);
+    switch(key.key){
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case 'Shift':
+            break;
+        default:
+            this.valorNoValido(key);
+            break;
+    }
    
+}
+
+function ValorNoValido(key){
+
     if (key.keyCode >= 65 && key.keyCode <= 90){
         alert(`no se permite valores, no numericos.\n valor ingresado: ${key.key}`);
        this.eliminarCaracterDisplay();

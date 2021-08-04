@@ -5,6 +5,9 @@ var activoIgual = false;
 var activoOperacion= false;
 var tipoOperacion= '';
 
+
+var operacionesRealizadas = [];
+
 /** 
  * Esta funcion permite validar que tipo de operacion quiere ralizar y guardo el valor en la variable numero1
  * 
@@ -58,38 +61,62 @@ function guardarNumero1(tipoOperacion) {
  function generarResultado() {
     this.guardarNumero2();
 
-    //BUG muestra NaN
-    //FIXME error
-    console.log(this.numero1, this.numero2);
-
     if(guardarNumero1){
+        this.guardarOperacion(this.numero1,this.numero2, this.tipoOperacion)
+       
         switch(this.tipoOperacion){
-            //TODO quitar console log
-            case 'suma':
-                this.numero1 = this. sumar(this.numero1, this.numero2);
-                this.mostrarDisplay(this.numero1);
+            case '+':
+                this.numero1 = this.sumar(this.numero1, this.numero2);
             break;
-            case 'resta':
-                this.numero1 = resta(this.numero1, this.numero2);
-                this.mostrarDisplay(this.numero1);
+            case '-':
+                this.numero1 = this.resta(this.numero1, this.numero2);
             break; 
-            case 'multiplicacion':
-                this.numero1 = multiplicacion(this.numero1, this.numero2);
-                this.mostrarDisplay(this.numero1);
+            case '*':
+                this.numero1 = this.multiplicacion(this.numero1, this.numero2);
             break; 
-            case 'division':
+            case '/':
                 this.numero1 =this.division(this.numero1, this.numero2);
-                this.mostrarDisplay(this.numero1);
             break;
-            case 'potencia':
-                this.numero1 =this.potencia(this.numero1, this.numero2);
-                this.mostrarDisplay(this.numero1);
+            case '^':
+                this.numero1 =this.potencia(this.numero1, this.numero2); 
             break;
             case 'raizCuadrada':
                 this.numero1 =this.raizCuadrada(this.numero1, this.numero2);
-                this.mostrarDisplay(this.numero1);
             break;
         }
+        if(this.numero1==NaN){
+            alert(`Error Variable con valor ${this.numero1}`);
+        }else{
+            this.mostrarDisplay(this.numero1);
+        }
+       
     }
  
 }
+
+/**
+ * guardar la operacion que se esta realiando
+ * @param {float} numero1 
+ * @param {float} numero2 
+ * @param {string} tipoOperacion 
+ */
+function guardarOperacion(num1,num2,tipoOpe){
+    this.operacionesRealizadas.push({numero1:num1,numero2:num2,tipoOperacion:tipoOpe});
+}
+
+/**
+ * Encargada de realizar el codigo HTML, y mostrar el historial de operaciones
+ */
+function imprimirOperaciones(){
+    document.getElementById("historico").innerHTML = '';
+
+    let ul = document.createElement("ul");
+
+    this.operacionesRealizadas.forEach(element => {
+        let li =document.createElement("li");
+        li.innerText = `${element.numero1} ${element.tipoOperacion} ${element.mumero2}`;
+        ul.appendChild(li); 
+    });
+}
+
+document.getElementById("historico").appendChild(ul);
