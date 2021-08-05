@@ -1,9 +1,21 @@
 ul {
     list-style: none;
-
+    
 }
 
 #historico{
     text-align: center;
     color: black;
+    border: solid blueviolet ;
+    margin-left: -25%;
+    width: 50%;
+}
+.jumbotron{
+    margin-top: 25%;
+    margin-left: 17%;
+    
+}
+.display-4{
+    border: solid blueviolet;
+    width: 54.5%;
 }
