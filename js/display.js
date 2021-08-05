@@ -14,15 +14,13 @@
  * esta funcion se encarga de eliminar la ultima entrada de teclado al display
  */
 function eliminarCaracterDisplay(){
-   
    let valorDisplay =document.getElementById("display").value;
-       let arrayDisplay = Array.from (valorDisplay);
+
+   let arrayDisplay = Array.from (valorDisplay);
        arrayDisplay.pop();
-   
        valorDisplay = arrayDisplay.join('');
 
-       this.mostrarDisplay(valorDisplay)
-       
+   this.mostrarDisplay(valorDisplay)      
 }
 
 

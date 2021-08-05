@@ -20,13 +20,13 @@
             break;
         case '^': //potencia
             this.guardarNumero1(key.key);
-            break;  
-        case '': //raiz cuadrada
-            this.guardarNumero1(key.key);
-        break;     
+            break;     
         case 'Enter': //igual
             this.generarResultado();
-            break;               
+            break;  
+        case 'NumpadEnter': //igual
+            this.generarResultado();
+            break;                
         case 'Backspace': //resta un numero
             break;  
         default: //validar numero
@@ -63,7 +63,7 @@ function validarNumero(key) {
 
 function ValorNoValido(key){
 
-    if (key.keyCode >= 65 && key.keyCode <= 90){
+    if (key.key >= 65 && key.key <= 90){
         alert(`no se permite valores, no numericos.\n valor ingresado: ${key.key}`);
        this.eliminarCaracterDisplay();
     }

@@ -1,17 +1,14 @@
 var numero1= -1;
 var numero2= -1;
 var activoIgual = false;
-
 var activoOperacion= false;
 var tipoOperacion= '';
-
-
 var operacionesRealizadas = [];
 
 /** 
  * Esta funcion permite validar que tipo de operacion quiere ralizar y guardo el valor en la variable numero1
  * 
- * @param {string} tipoOperacion -> puede ser suma, multiplicacion, division.
+ * @param {string} tipoOperacion -> puede ser suma,resta, multiplicacion, division.
 */
 function guardarNumero1(tipoOperacion) {
     
@@ -62,7 +59,7 @@ function guardarNumero1(tipoOperacion) {
     this.guardarNumero2();
 
     if(guardarNumero1){
-        let result = 0;
+        let result = 0;  //la utilizo para almacenar resultado  y mostrar resultado
 
         switch(this.tipoOperacion){
             case '+':
@@ -72,7 +69,7 @@ function guardarNumero1(tipoOperacion) {
                 result =this.resta(this.numero1, this.numero2);
             break; 
             case '*':
-                result = this.multiplicacion(this.numero1, this.numero2);
+                result =this.multiplicacion(this.numero1, this.numero2);
             break; 
             case '/':
                 result =this.division(this.numero1, this.numero2);
@@ -80,9 +77,7 @@ function guardarNumero1(tipoOperacion) {
             case '^':
                 result =this.potencia(this.numero1, this.numero2); 
             break;
-            case 'raizCuadrada':
-                result = this.raizCuadrada(this.numero1, this.numero2);
-            break;
+          
         }
         if(result== NaN){
             alert(`Error Variable con valor ${result}`);
@@ -90,7 +85,7 @@ function guardarNumero1(tipoOperacion) {
             this.mostrarDisplay(result);
         }
         this.guardarOperacion(this.numero1,this.numero2,this.tipoOperacion,result);
-        this.numero1 = result;
+        this.numero1 = result;  //para que se quede almacenada la variavle uno como a venido traendolo
     }
  
 }
@@ -116,7 +111,7 @@ function imprimirOperaciones(){
 
     this.operacionesRealizadas.forEach(element => {
         let li =document.createElement("li");
-        li.innerText = `${element.numero1} ${element.tipoOperacion} ${element.mumero2} = ${element.resultado}`;
+        li.innerText = `${element.numero1} ${element.tipoOperacion} ${element.numero2} = ${element.resultado}`;
         ul.appendChild(li); 
     });
 

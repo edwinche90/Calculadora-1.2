@@ -46,12 +46,3 @@ function potencia(numero1,numero2){
     return Math.pow(numero1,numero2);
 }
 
-/**
- * Raiz Cuadradad
- * @param {float} numero1 
- * @param {float} numero2 
- * @returns cresultado de la raiz cuadrada en numero1 y numero 2
- */
-function raizCuadrada(numero1,numero2){
-    return Math.random(numero2,numero2);
-}
