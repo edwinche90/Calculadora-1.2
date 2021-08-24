@@ -55,7 +55,7 @@ function validarNumero(key) {
         case 'Shift':
             break;
         default:
-            this.valorNoValido(key);
+                                                                            
             break;
     }
    

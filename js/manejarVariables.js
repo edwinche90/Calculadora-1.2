@@ -14,7 +14,7 @@ function guardarNumero1(tipoOperacion) {
     
     this.alamacenarTipoOperacion = tipoOperacion;
     this.eliminarCaracterDisplay();
-
+    
     if(this.numero1 == -1 && this.obtenerValorDisplay() !=''){
         this.numero1 = parseFloat(this.obtenerValorDisplay());
         this.definirTipoOperacion(this.alamacenarTipoOperacion); 
@@ -61,7 +61,8 @@ function guardarNumero1(tipoOperacion) {
  function generarResultado() {
     this.guardarNumero2();
 
-    if(this.numero1 != -1 && this.numero2 && -1){
+
+    if(this.numero1 != -1 && this.numero2 && -1){ v
         let result = 0;  //la utilizo para almacenar resultado  y mostrar resultado
 
         switch(this.tipoOperacion){
